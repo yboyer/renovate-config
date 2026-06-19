@@ -13,6 +13,7 @@
   ],
   "rangeStrategy": "bump",
   "platformAutomerge": false,
+  "internalChecksAsSuccess": true,
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
