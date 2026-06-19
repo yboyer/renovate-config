@@ -7,7 +7,6 @@
     ":configMigration",
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
-    ":maintainLockFilesWeekly",
     ":disableRateLimiting",
     "group:recommended"
   ],
