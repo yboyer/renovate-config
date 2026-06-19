@@ -31,6 +31,16 @@
   },
   "packageRules": [
     {
+      "description": "Disable GitHub Actions digest PRs",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "enabled": false
+    },
+    {
       "matchUpdateTypes": [
         "patch",
         "pin",
