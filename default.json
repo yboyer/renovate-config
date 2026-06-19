@@ -12,6 +12,7 @@
     "group:recommended"
   ],
   "rangeStrategy": "bump",
+  "platformAutomerge": false,
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
@@ -20,17 +21,27 @@
     "branchTopic": "{{{datasource}}}-{{{depNameSanitized}}}-vulnerability",
     "prCreation": "immediate",
     "enabled": true,
-    "labels": ["security"],
-    "assignees": ["yboyer"]
+    "labels": [
+      "security"
+    ],
+    "assignees": [
+      "yboyer"
+    ]
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     },
     {
       "description": "Handle vulnerabilities immediately",
-      "matchUpdateTypes": ["vulnerability"],
+      "matchUpdateTypes": [
+        "vulnerability"
+      ],
       "minimumReleaseAge": null,
       "prCreation": "immediate"
     }
