@@ -29,7 +29,7 @@ Custom defaults:
 
 Package rules:
 
-- Disables GitHub Actions `digest` PRs
+- Disables GitHub Actions `digest` and `pinDigest` PRs
 - Automerges `patch`, `pin`, and `digest` updates
 - Handles `vulnerability` updates immediately
 
