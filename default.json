@@ -10,43 +10,28 @@
     ":disableRateLimiting",
     "group:recommended"
   ],
-  "rangeStrategy": "bump",
-  "platformAutomerge": false,
   "internalChecksAsSuccess": true,
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
-  "vulnerabilityAlerts": {
-    "minimumReleaseAge": null,
-    "commitMessagePrefix": "[SECURITY]",
-    "branchTopic": "{{{datasource}}}-{{{depNameSanitized}}}-vulnerability",
-    "prCreation": "immediate",
-    "enabled": true,
-    "labels": [
-      "security"
-    ],
-    "assignees": [
-      "yboyer"
-    ]
-  },
   "packageRules": [
     {
       "description": "Disable GitHub Actions digest and pinDigest PRs",
+      "enabled": false,
       "matchManagers": [
         "github-actions"
       ],
       "matchUpdateTypes": [
         "digest",
         "pinDigest"
-      ],
-      "enabled": false
+      ]
     },
     {
+      "automerge": true,
       "matchUpdateTypes": [
         "patch",
         "pin",
         "digest"
-      ],
-      "automerge": true
+      ]
     },
     {
       "description": "Handle vulnerabilities immediately",
@@ -56,5 +41,21 @@
       "minimumReleaseAge": null,
       "prCreation": "immediate"
     }
-  ]
+  ],
+  "platformAutomerge": false,
+  "rangeStrategy": "bump",
+  "separateMajorMinor": false,
+  "vulnerabilityAlerts": {
+    "assignees": [
+      "yboyer"
+    ],
+    "branchTopic": "{{{datasource}}}-{{{depNameSanitized}}}-vulnerability",
+    "commitMessagePrefix": "[SECURITY]",
+    "enabled": true,
+    "labels": [
+      "security"
+    ],
+    "minimumReleaseAge": null,
+    "prCreation": "immediate"
+  }
 }
