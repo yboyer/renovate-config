@@ -8,6 +8,7 @@
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
     ":disableRateLimiting",
+    ":maintainLockFilesWeekly",
     "group:recommended"
   ],
   "internalChecksAsSuccess": true,
