@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended",
     "docker:pinDigests",
-    "helpers:pinGitHubActionDigests",
     ":configMigration",
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
@@ -15,17 +14,6 @@
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
   "packageRules": [
-    {
-      "description": "Disable GitHub Actions digest and pinDigest PRs",
-      "enabled": false,
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchUpdateTypes": [
-        "digest",
-        "pinDigest"
-      ]
-    },
     {
       "automerge": true,
       "matchUpdateTypes": [
