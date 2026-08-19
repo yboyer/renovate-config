@@ -6,6 +6,7 @@
     ":configMigration",
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
+    ":pinAllExceptPeerDependencies",
     ":disableRateLimiting",
     ":maintainLockFilesWeekly",
     "group:recommended"
