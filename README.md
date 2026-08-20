@@ -12,11 +12,12 @@ Base presets:
 
 - `config:recommended`
 - `docker:pinDigests`
-- `helpers:pinGitHubActionDigests`
 - `:configMigration`
 - `abandonments:recommended`
 - `security:minimumReleaseAgeNpm`
+- `:pinAllExceptPeerDependencies`
 - `:disableRateLimiting`
+- `:maintainLockFilesWeekly`
 - `group:recommended`
 
 Custom defaults:
@@ -26,10 +27,10 @@ Custom defaults:
 - Marks internal checks as success with `internalChecksAsSuccess: true`
 - Requires a `minimumReleaseAge` of `3 days`
 - Enables OSV vulnerability alerts
+- Disables `separateMajorMinor`
 
 Package rules:
 
-- Disables GitHub Actions `digest` and `pinDigest` PRs
 - Automerges `patch`, `pin`, and `digest` updates
 - Handles `vulnerability` updates immediately
 
