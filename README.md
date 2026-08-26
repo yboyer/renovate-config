@@ -27,6 +27,7 @@ Custom defaults:
 - Marks internal checks as success with `internalChecksAsSuccess: true`
 - Requires a `minimumReleaseAge` of `3 days`
 - Enables OSV vulnerability alerts
+- Pins GitHub Actions to immutable digests with `pinGitHubActionDigests: true`
 - Disables `separateMajorMinor`
 
 Package rules:
