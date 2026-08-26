@@ -9,12 +9,12 @@
     ":pinAllExceptPeerDependencies",
     ":disableRateLimiting",
     ":maintainLockFilesWeekly",
-    "group:recommended"
+    "group:recommended",
+    "helpers:pinGitHubActionDigests"
   ],
   "internalChecksAsSuccess": true,
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
-  "pinGitHubActionDigests": true,
   "packageRules": [
     {
       "automerge": true,

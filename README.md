@@ -10,15 +10,16 @@ This repo publishes a default Renovate configuration from [`default.json`](./def
 
 Base presets:
 
-- `config:recommended`
-- `docker:pinDigests`
-- `:configMigration`
-- `abandonments:recommended`
-- `security:minimumReleaseAgeNpm`
-- `:pinAllExceptPeerDependencies`
-- `:disableRateLimiting`
-- `:maintainLockFilesWeekly`
-- `group:recommended`
+- [`config:recommended`](https://docs.renovatebot.com/presets-config/#configrecommended)
+- [`docker:pinDigests`](https://docs.renovatebot.com/presets-docker/#dockerpindigests)
+- [`:configMigration`](https://docs.renovatebot.com/presets-default/#configmigration)
+- [`abandonments:recommended`](https://docs.renovatebot.com/presets-abandonments/#abandonmentsrecommended)
+- [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
+- [`:pinAllExceptPeerDependencies`](https://docs.renovatebot.com/presets-default/#pinallexceptpeerdependencies)
+- [`:disableRateLimiting`](https://docs.renovatebot.com/presets-default/#disableratelimiting)
+- [`:maintainLockFilesWeekly`](https://docs.renovatebot.com/presets-default/#maintainlockfilesweekly)
+- [`group:recommended`](https://docs.renovatebot.com/presets-group/#grouprecommended)
+- [`helpers:pinGitHubActionDigests`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigests)
 
 Custom defaults:
 
@@ -27,7 +28,6 @@ Custom defaults:
 - Marks internal checks as success with `internalChecksAsSuccess: true`
 - Requires a `minimumReleaseAge` of `3 days`
 - Enables OSV vulnerability alerts
-- Pins GitHub Actions to immutable digests with `pinGitHubActionDigests: true`
 - Disables `separateMajorMinor`
 
 Package rules:
