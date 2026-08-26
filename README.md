@@ -10,16 +10,16 @@ This repo publishes a default Renovate configuration from [`default.json`](./def
 
 Base presets:
 
-- `config:recommended`
-- `docker:pinDigests`
-- `:configMigration`
-- `abandonments:recommended`
-- `security:minimumReleaseAgeNpm`
-- `:pinAllExceptPeerDependencies`
-- `:disableRateLimiting`
-- `:maintainLockFilesWeekly`
-- `group:recommended`
-- `helpers:pinGitHubActionDigests` — pins GitHub Actions to immutable digests
+- [`config:recommended`](https://docs.renovatebot.com/presets-config/#configrecommended)
+- [`docker:pinDigests`](https://docs.renovatebot.com/presets-docker/#dockerpindigests)
+- [`:configMigration`](https://docs.renovatebot.com/presets-default/#configmigration)
+- [`abandonments:recommended`](https://docs.renovatebot.com/presets-abandonments/#abandonmentsrecommended)
+- [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
+- [`:pinAllExceptPeerDependencies`](https://docs.renovatebot.com/presets-default/#pinallexceptpeerdependencies)
+- [`:disableRateLimiting`](https://docs.renovatebot.com/presets-default/#disableratelimiting)
+- [`:maintainLockFilesWeekly`](https://docs.renovatebot.com/presets-default/#maintainlockfilesweekly)
+- [`group:recommended`](https://docs.renovatebot.com/presets-group/#grouprecommended)
+- [`helpers:pinGitHubActionDigests`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigests)
 
 Custom defaults:
 
