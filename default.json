@@ -31,6 +31,17 @@
       ],
       "minimumReleaseAge": null,
       "prCreation": "immediate"
+    },
+    {
+      "description": "Bypass stability-days for yboyer/actions",
+      "minimumReleaseAge": null,
+      "prCreation": "immediate",
+      "matchDepNames": [
+        "yboyer/actions"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ]
     }
   ],
   "platformAutomerge": false,
