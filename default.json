@@ -33,7 +33,8 @@
       "prCreation": "immediate"
     },
     {
-      "description": "Bypass stability-days for yboyer/actions",
+      "description": "Group yboyer/actions updates and bypass stability-days",
+      "groupName": "yboyer actions",
       "minimumReleaseAge": null,
       "prCreation": "immediate",
       "matchDepNames": [
