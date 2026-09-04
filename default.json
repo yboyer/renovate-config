@@ -37,10 +37,11 @@
       "minimumReleaseAge": null,
       "prCreation": "immediate",
       "matchDepNames": [
-        "yboyer/actions"
+        "yboyer/actions/**"
       ],
       "matchManagers": [
-        "github-actions"
+        "github-actions",
+        "regex"
       ]
     }
   ],
