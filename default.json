@@ -14,6 +14,8 @@
   ],
   "internalChecksAsSuccess": true,
   "minimumReleaseAge": "3 days",
+  "npmrc": "min-release-age=3",
+  "npmrcMerge": true,
   "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
