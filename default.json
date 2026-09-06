@@ -38,6 +38,14 @@
       "prCreation": "immediate"
     },
     {
+      "description": "Handle lock file maintenance immediately",
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAge": null,
+      "prCreation": "immediate"
+    },
+    {
       "description": "Mark major version bumps with the breaking label",
       "matchUpdateTypes": [
         "major"

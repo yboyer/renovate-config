@@ -33,7 +33,8 @@ Custom defaults:
 Package rules:
 
 - Automerges `patch`, `pin`, and `digest` updates
-- Handles `vulnerability` updates immediately
+- Handles `vulnerability` and `lockFileMaintenance` updates immediately
+  - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
 
 Vulnerability alert behavior:
 
