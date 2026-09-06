@@ -4,6 +4,8 @@
     "config:recommended",
     "docker:pinDigests",
     ":configMigration",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
     "abandonments:recommended",
     "security:minimumReleaseAgeNpm",
     ":pinAllExceptPeerDependencies",
@@ -13,6 +15,7 @@
     "helpers:pinGitHubActionDigests"
   ],
   "internalChecksAsSuccess": true,
+  "rebaseWhen": "conflicted",
   "minimumReleaseAge": "3 days",
   "npmrc": "min-release-age=3",
   "npmrcMerge": true,
@@ -33,6 +36,15 @@
       ],
       "minimumReleaseAge": null,
       "prCreation": "immediate"
+    },
+    {
+      "description": "Mark major version bumps with the breaking label",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "addLabels": [
+        "breaking"
+      ]
     },
     {
       "description": "Group yboyer/actions updates and bypass stability-days",
