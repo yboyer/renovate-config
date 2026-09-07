@@ -59,8 +59,8 @@
       "groupName": "yboyer actions",
       "minimumReleaseAge": null,
       "prCreation": "immediate",
-      "matchDepNames": [
-        "yboyer/actions/**"
+      "matchPackageNames": [
+        "yboyer/actions"
       ],
       "matchManagers": [
         "github-actions",
