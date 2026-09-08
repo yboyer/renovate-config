@@ -66,6 +66,17 @@
         "github-actions",
         "regex"
       ]
+    },
+    {
+      "description": "Group Biome and shared config updates",
+      "groupName": "Biome + config",
+      "matchPackageNames": [
+        "@biomejs/biome",
+        "@yboyer/config"
+      ],
+      "matchManagers": [
+        "npm"
+      ]
     }
   ],
   "platformAutomerge": false,
