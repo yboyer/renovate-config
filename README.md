@@ -10,16 +10,20 @@ This repo publishes a default Renovate configuration from [`default.json`](./def
 
 Base presets:
 
+- [`abandonments:recommended`](https://docs.renovatebot.com/presets-abandonments/#abandonmentsrecommended)
 - [`config:recommended`](https://docs.renovatebot.com/presets-config/#configrecommended)
 - [`docker:pinDigests`](https://docs.renovatebot.com/presets-docker/#dockerpindigests)
-- [`:configMigration`](https://docs.renovatebot.com/presets-default/#configmigration)
-- [`abandonments:recommended`](https://docs.renovatebot.com/presets-abandonments/#abandonmentsrecommended)
-- [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
-- [`:pinAllExceptPeerDependencies`](https://docs.renovatebot.com/presets-default/#pinallexceptpeerdependencies)
-- [`:disableRateLimiting`](https://docs.renovatebot.com/presets-default/#disableratelimiting)
-- [`:maintainLockFilesWeekly`](https://docs.renovatebot.com/presets-default/#maintainlockfilesweekly)
 - [`group:recommended`](https://docs.renovatebot.com/presets-group/#grouprecommended)
 - [`helpers:pinGitHubActionDigests`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigests)
+- [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
+- [`:automergePatch`](https://docs.renovatebot.com/presets-default/#automergepatch)
+- [`:configMigration`](https://docs.renovatebot.com/presets-default/#configmigration)
+- [`:disableRateLimiting`](https://docs.renovatebot.com/presets-default/#disableratelimiting)
+- [`:maintainLockFilesWeekly`](https://docs.renovatebot.com/presets-default/#maintainlockfilesweekly)
+- [`:pinAllExceptPeerDependencies`](https://docs.renovatebot.com/presets-default/#pinallexceptpeerdependencies)
+- [`:rebaseStalePrs`](https://docs.renovatebot.com/presets-default/#rebasestaleprs)
+- [`:semanticCommits`](https://docs.renovatebot.com/presets-default/#semanticcommits)
+- [`:semanticCommitScope(deps)`](https://docs.renovatebot.com/presets-default/#semanticcommitscopescope)
 
 Custom defaults:
 
@@ -32,9 +36,11 @@ Custom defaults:
 
 Package rules:
 
-- Automerges `patch`, `pin`, and `digest` updates
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately
   - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
+- Adds the `breaking` label to major updates
+- Groups `yboyer/actions` GitHub Actions and regex updates, and handles them immediately without a stability delay
+- Groups updates for `@biomejs/biome` and `@yboyer/config` as `Biome + config`
 
 Vulnerability alert behavior:
 
