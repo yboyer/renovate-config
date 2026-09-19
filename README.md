@@ -39,7 +39,7 @@ Package rules:
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately
   - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
 - Adds the `breaking` label to major updates
-- Groups `yboyer/actions` GitHub Actions and regex updates, and handles them immediately without a stability delay
+- Groups `yboyer/actions` and nested `yboyer/actions/**` GitHub Actions and regex updates, and handles them immediately without a stability delay
 - Groups updates for `@biomejs/biome` and `@yboyer/config` as `Biome + config`
 
 Vulnerability alert behavior:

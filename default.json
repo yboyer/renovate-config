@@ -53,7 +53,8 @@
       "minimumReleaseAge": null,
       "prCreation": "immediate",
       "matchPackageNames": [
-        "yboyer/actions"
+        "yboyer/actions",
+        "yboyer/actions/**"
       ],
       "matchManagers": [
         "github-actions",
