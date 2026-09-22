@@ -85,13 +85,6 @@
       "matchUpdateTypes": [
         "minor"
       ]
-    },
-    {
-      "description": "Group all major updates into one PR",
-      "groupName": "all major updates",
-      "matchUpdateTypes": [
-        "major"
-      ]
     }
   ],
   "platformAutomerge": false,
