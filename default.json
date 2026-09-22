@@ -14,7 +14,8 @@
     ":pinAllExceptPeerDependencies",
     ":rebaseStalePrs",
     ":semanticCommits",
-    ":semanticCommitScope(deps)"
+    ":semanticCommitScope(deps)",
+    ":updateNotScheduled"
   ],
   "internalChecksAsSuccess": true,
   "minimumReleaseAge": "3 days",
@@ -63,7 +64,6 @@
     },
     {
       "description": "Group Biome and shared config updates",
-      "groupName": "Biome + config",
       "matchPackageNames": [
         "@biomejs/biome",
         "@yboyer/config"
@@ -71,10 +71,34 @@
       "matchManagers": [
         "npm"
       ]
+    },
+    {
+      "description": "Group all patch updates into one PR",
+      "groupName": "all patch updates",
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    },
+    {
+      "description": "Group all minor updates into one PR",
+      "groupName": "all minor updates",
+      "matchUpdateTypes": [
+        "minor"
+      ]
+    },
+    {
+      "description": "Group all major updates into one PR",
+      "groupName": "all major updates",
+      "matchUpdateTypes": [
+        "major"
+      ]
     }
   ],
   "platformAutomerge": false,
   "rangeStrategy": "bump",
+  "schedule": [
+    "* 0-4 * * *"
+  ],
   "separateMajorMinor": false,
   "vulnerabilityAlerts": {
     "assignees": [
