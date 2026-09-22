@@ -42,7 +42,7 @@ Package rules:
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately
   - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
 - Adds the `breaking` label to major updates
-- Groups all `patch`, `minor`, and `major` updates into separate PRs
+- Groups all `patch` and `minor` updates into separate PRs; major updates remain ungrouped
 - Groups `yboyer/actions` and nested `yboyer/actions/**` GitHub Actions and regex updates, and handles them immediately without a stability delay
 
 Vulnerability alert behavior:
