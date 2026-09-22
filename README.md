@@ -24,6 +24,7 @@ Base presets:
 - [`:rebaseStalePrs`](https://docs.renovatebot.com/presets-default/#rebasestaleprs)
 - [`:semanticCommits`](https://docs.renovatebot.com/presets-default/#semanticcommits)
 - [`:semanticCommitScope(deps)`](https://docs.renovatebot.com/presets-default/#semanticcommitscopescope)
+- [`:updateNotScheduled`](https://docs.renovatebot.com/presets-default/#updatenotscheduled)
 
 Custom defaults:
 
@@ -31,6 +32,8 @@ Custom defaults:
 - Disables `platformAutomerge`
 - Marks internal checks as success with `internalChecksAsSuccess: true`
 - Requires a `minimumReleaseAge` of `3 days`
+- Runs daily between 00:00 and 04:59 (`* 0-4 * * *`)
+- Updates existing branches outside the scheduled window
 - Enables OSV vulnerability alerts
 - Disables `separateMajorMinor`
 
@@ -39,8 +42,8 @@ Package rules:
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately
   - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
 - Adds the `breaking` label to major updates
+- Groups all `patch`, `minor`, and `major` updates into separate PRs
 - Groups `yboyer/actions` and nested `yboyer/actions/**` GitHub Actions and regex updates, and handles them immediately without a stability delay
-- Groups updates for `@biomejs/biome` and `@yboyer/config` as `Biome + config`
 
 Vulnerability alert behavior:
 
