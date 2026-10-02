@@ -80,7 +80,9 @@ If you want to compose it with repo-specific settings:
 ## Repo layout
 
 - `default.json` — default shared preset consumed by Renovate
-- `renovate.json` — applies the shared preset to this repository
+- `renovate.json` — applies the shared preset to this repository and adds the root `default.json` to the `renovate-config` manager through `managerFilePatterns`; the standard Renovate config files remain included. This setting applies only to this repository.
+
+The `renovate-config` manager updates supported versioned preset references and tool constraints. Built-in presets and unversioned preset references do not produce dependency updates, so scanning `default.json` does not necessarily add dependencies to the Dependency Dashboard.
 
 ## Updating the preset
 
