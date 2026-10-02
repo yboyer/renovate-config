@@ -80,6 +80,7 @@ If you want to compose it with repo-specific settings:
 ## Repo layout
 
 - `default.json` — default shared preset consumed by Renovate
+- `renovate.json` — applies the shared preset to this repository
 
 ## Updating the preset
 
