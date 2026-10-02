@@ -1,4 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>yboyer/renovate-config"]
+  "extends": ["github>yboyer/renovate-config"],
+  "renovate-config": {
+    "managerFilePatterns": ["/^default\\.json$/"]
+  }
 }
