@@ -37,6 +37,11 @@ Custom defaults:
 - Enables OSV vulnerability alerts
 - Disables `separateMajorMinor`
 
+Custom manager:
+
+- Scans YAML GitHub Actions workflows in `.github/workflows/` for Docker image references in `docker run` commands.
+- Uses the Docker datasource to update image tags and optional SHA-256 digests.
+
 Package rules:
 
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately

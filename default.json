@@ -18,6 +18,16 @@
     ":updateNotScheduled"
   ],
   "internalChecksAsSuccess": true,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
+      "matchStrings": [
+        "docker run[^\\n]*?\\s(?<depName>[\\w.-]+(?::\\d+)?(?:/[\\w.-]+)*):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?(?:\\s|$)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
   "minimumReleaseAge": "3 days",
   "npmrc": "min-release-age=3",
   "npmrcMerge": true,
