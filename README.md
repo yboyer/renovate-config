@@ -37,13 +37,18 @@ Custom defaults:
 - Enables OSV vulnerability alerts
 - Disables `separateMajorMinor`
 
+Custom manager:
+
+- Scans YAML GitHub Actions workflows in `.github/workflows/` for Docker image references in `docker run` commands.
+- Uses the Docker datasource to update image tags and optional SHA-256 digests.
+
 Package rules:
 
 - Handles `vulnerability` and `lockFileMaintenance` updates immediately
   - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
 - Adds the `breaking` label to major updates
 - Groups all `patch` and `minor` updates into separate PRs; major updates remain ungrouped
-- Groups `yboyer/actions` and nested `yboyer/actions/**` GitHub Actions and regex updates, and handles them immediately without a stability delay
+- Groups `yboyer/actions` and nested `yboyer/actions/**` updates from the `github-actions` and `custom.regex` managers, and handles them immediately without a stability delay
 
 Vulnerability alert behavior:
 
@@ -75,6 +80,7 @@ If you want to compose it with repo-specific settings:
 ## Repo layout
 
 - `default.json` — default shared preset consumed by Renovate
+- `renovate.json` — applies the shared preset to this repository
 
 ## Updating the preset
 
