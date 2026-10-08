@@ -39,20 +39,32 @@ Custom defaults:
 
 Custom manager:
 
-- Scans YAML GitHub Actions workflows in `.github/workflows/` for Docker image references in `docker run` commands.
-- Uses the Docker datasource to update image tags and optional SHA-256 digests.
+- Scans YAML GitHub Actions workflows in `.github/workflows/` for literal Docker image references with at least one slash, such as `ghcr.io/org/image:TAG`, `registry:5000/team/image:TAG` or `namespace/image:TAG`. References may be quoted. Bare names such as `alpine:TAG` are excluded to reduce false positives.
+- Matches references anywhere in the workflow, without parsing Docker options, so multiline commands need no annotation. Use this convention for literal image references; the manager does not distinguish them from similarly formatted non-image strings.
+- Uses the Docker datasource and Docker versioning to update image tags and optional 64-character SHA-256 digests.
+
+```yaml
+- run: |
+    docker run --rm -v "$PWD:/repo" -w /repo \
+      ghcr.io/gitleaks/gitleaks:v8.24.2 \
+      git --verbose --redact --no-color .
+```
 
 Package rules:
 
-- Handles `vulnerability` and `lockFileMaintenance` updates immediately
-  - Lock file maintenance remains safe: the configured `npmrc` applies `min-release-age=3`, so npm excludes packages released within the last three days.
+- Handles `lockFileMaintenance` updates without a Renovate release-age delay and creates their PRs immediately within the weekly maintenance schedule.
+  - The merged `npmrc` applies `min-release-age=3` for ordinary updates and lock file maintenance when supported by the npm version in use. This npm option does not provide a release-age guarantee for other package managers.
+- Handles vulnerabilities through `vulnerabilityAlerts`, rather than an unsupported `vulnerability` update type.
 - Adds the `breaking` label to major updates
-- Groups all `patch` and `minor` updates into separate PRs; major updates remain ungrouped
-- Groups `yboyer/actions` and nested `yboyer/actions/**` updates from the `github-actions` and `custom.regex` managers, and handles them immediately without a stability delay
+- Groups all `patch` and `minor` updates into separate PRs, except for the explicit groups below. Major updates retain inherited grouping unless an explicit group applies.
+- Groups `yboyer/actions` and nested `yboyer/actions/**` updates from the `github-actions` and `custom.regex` managers, and handles them without a stability delay; the normal creation schedule still applies.
+- Groups `@biomejs/biome` and `@yboyer/config` npm updates under `Biome and shared config`.
+- Both explicit group rules come after the global patch/minor rules so their group names take precedence. With `separateMajorMinor: false`, their major and non-major updates can share a PR.
 
 Vulnerability alert behavior:
 
-- No minimum release age
+- No Renovate minimum release age; creates security PRs immediately.
+- Overrides the injected npm release-age filter with `npmrc: "min-release-age=0"`, while retaining `npmrcMerge: true`, so recent security fixes can be installed when generating npm lockfiles.
 - PR prefix: `[SECURITY]`
 - Branch topic: `{{{datasource}}}-{{{depNameSanitized}}}-vulnerability`
 - Adds `security` label
