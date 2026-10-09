@@ -21,11 +21,14 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
-      "matchStrings": [
-        "docker run[^\\n]*?\\s(?<depName>[\\w.-]+(?::\\d+)?(?:/[\\w.-]+)*):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?(?:\\s|$)"
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
       ],
-      "datasourceTemplate": "docker"
+      "matchStrings": [
+        "(?:^|[\\s\"\\x27])(?<depName>[\\w.-]+(?::\\d+)?(?:/[\\w.-]+)+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]{64}))?(?:[\\s\"\\x27]|$)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     }
   ],
   "minimumReleaseAge": "3 days",
@@ -33,14 +36,6 @@
   "npmrcMerge": true,
   "osvVulnerabilityAlerts": true,
   "packageRules": [
-    {
-      "description": "Handle vulnerabilities immediately",
-      "matchUpdateTypes": [
-        "vulnerability"
-      ],
-      "minimumReleaseAge": null,
-      "prCreation": "immediate"
-    },
     {
       "description": "Handle lock file maintenance immediately",
       "matchUpdateTypes": [
@@ -56,6 +51,20 @@
       ],
       "addLabels": [
         "breaking"
+      ]
+    },
+    {
+      "description": "Group all patch updates into one PR",
+      "groupName": "all patch updates",
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    },
+    {
+      "description": "Group all minor updates into one PR",
+      "groupName": "all minor updates",
+      "matchUpdateTypes": [
+        "minor"
       ]
     },
     {
@@ -80,21 +89,8 @@
       ],
       "matchManagers": [
         "npm"
-      ]
-    },
-    {
-      "description": "Group all patch updates into one PR",
-      "groupName": "all patch updates",
-      "matchUpdateTypes": [
-        "patch"
-      ]
-    },
-    {
-      "description": "Group all minor updates into one PR",
-      "groupName": "all minor updates",
-      "matchUpdateTypes": [
-        "minor"
-      ]
+      ],
+      "groupName": "Biome and shared config"
     }
   ],
   "platformAutomerge": false,
@@ -114,6 +110,7 @@
       "security"
     ],
     "minimumReleaseAge": null,
-    "prCreation": "immediate"
+    "prCreation": "immediate",
+    "npmrc": "min-release-age=0"
   }
 }
