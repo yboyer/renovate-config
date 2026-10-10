@@ -29,6 +29,18 @@
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "description": "Update semantic-release and plugins used by npx",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "\\bnpx\\s+(?<depName>semantic-release)@(?<currentValue>[^\\s\"\\x27]+)",
+        "(?:^|\\s)--package=(?<depName>semantic-release|@semantic-release/[\\w.-]+)@(?<currentValue>[^\\s\"\\x27]+)"
+      ],
+      "datasourceTemplate": "npm"
     }
   ],
   "minimumReleaseAge": "3 days",

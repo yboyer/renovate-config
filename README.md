@@ -36,8 +36,9 @@ Custom defaults:
 - Updates existing branches outside the scheduled window
 - Enables OSV vulnerability alerts
 - Disables `separateMajorMinor`
+- Enables semantic commits with scope `deps` through the existing presets. `config:recommended` supplies `chore` by default and `fix` for `dependencies`.
 
-Custom manager:
+Custom managers:
 
 - Scans YAML GitHub Actions workflows in `.github/workflows/` for literal Docker image references with at least one slash, such as `ghcr.io/org/image:TAG`, `registry:5000/team/image:TAG` or `namespace/image:TAG`. References may be quoted. Bare names such as `alpine:TAG` are excluded to reduce false positives.
 - Matches references anywhere in the workflow, without parsing Docker options, so multiline commands need no annotation. Use this convention for literal image references; the manager does not distinguish them from similarly formatted non-image strings.
@@ -48,6 +49,13 @@ Custom manager:
     docker run --rm -v "$PWD:/repo" -w /repo \
       ghcr.io/gitleaks/gitleaks:v8.24.2 \
       git --verbose --redact --no-color .
+```
+
+- Updates `semantic-release` in direct `npx semantic-release@VERSION` commands and `semantic-release` or `@semantic-release/*` plugins in `--package=PACKAGE@VERSION` arguments, including multiline `run: |` blocks in `.github/workflows/*.yml` and `.github/workflows/*.yaml`. The regex custom manager captures each package name and version separately and uses the npm datasource.
+
+```yaml
+- run: |
+    npx --yes --package=semantic-release@25.0.1 --package=@semantic-release/git@11.0.1 semantic-release
 ```
 
 Package rules:
