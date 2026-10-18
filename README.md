@@ -14,6 +14,7 @@ Base presets:
 - [`config:recommended`](https://docs.renovatebot.com/presets-config/#configrecommended)
 - [`docker:pinDigests`](https://docs.renovatebot.com/presets-docker/#dockerpindigests)
 - [`group:recommended`](https://docs.renovatebot.com/presets-group/#grouprecommended)
+- [`group:vitePlus`](https://docs.renovatebot.com/presets-group/#groupviteplus) — adds the Vite Plus dependency group; the local patch/minor grouping rules still take precedence.
 - [`helpers:pinGitHubActionDigests`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigests)
 - [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
 - [`:automergePatch`](https://docs.renovatebot.com/presets-default/#automergepatch)

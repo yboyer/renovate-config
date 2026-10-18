@@ -5,6 +5,7 @@
     "config:recommended",
     "docker:pinDigests",
     "group:recommended",
+    "group:vitePlus",
     "helpers:pinGitHubActionDigests",
     "security:minimumReleaseAgeNpm",
     ":automergePatch",
