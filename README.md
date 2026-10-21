@@ -14,7 +14,6 @@ Base presets:
 - [`config:recommended`](https://docs.renovatebot.com/presets-config/#configrecommended)
 - [`docker:pinDigests`](https://docs.renovatebot.com/presets-docker/#dockerpindigests)
 - [`group:recommended`](https://docs.renovatebot.com/presets-group/#grouprecommended)
-- [`group:vitePlus`](https://docs.renovatebot.com/presets-group/#groupviteplus) — adds the Vite Plus dependency group; the local patch/minor grouping rules still take precedence.
 - [`helpers:pinGitHubActionDigests`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigests)
 - [`security:minimumReleaseAgeNpm`](https://docs.renovatebot.com/presets-security/#securityminimumreleaseagenpm)
 - [`:automergePatch`](https://docs.renovatebot.com/presets-default/#automergepatch)
@@ -66,9 +65,10 @@ Package rules:
 - Handles vulnerabilities through `vulnerabilityAlerts`, rather than an unsupported `vulnerability` update type.
 - Adds the `breaking` label to major updates
 - Groups all `patch` and `minor` updates into separate PRs, except for the explicit groups below. Major updates retain inherited grouping unless an explicit group applies.
+- Groups packages from the Vite+ and Vitest source repositories, including the Vite+ core alias and Vitest coverage providers, under `Vite+ packages` using the [`packages:vitePlus`](https://docs.renovatebot.com/presets-packages/#packagesviteplus) matcher preset. This replaces the top-level `group:vitePlus` preset so the group takes precedence over the global patch/minor rules. Grouping does not enforce version compatibility: the core alias must match `vite-plus`, and Vitest and its coverage providers must match the Vitest version bundled with Vite+. Consumer repositories need a CI check or an upgrade automation to enforce this alignment; see the [Vite+ upgrade guide](https://viteplus.dev/guide/upgrade-project).
 - Groups `yboyer/actions` and nested `yboyer/actions/**` updates from the `github-actions` and `custom.regex` managers, and handles them without a stability delay; the normal creation schedule still applies.
 - Groups `@biomejs/biome` and `@yboyer/config` npm updates under `Biome and shared config`.
-- Both explicit group rules come after the global patch/minor rules so their group names take precedence. With `separateMajorMinor: false`, their major and non-major updates can share a PR.
+- All three explicit group rules come after the global patch/minor rules so their group names take precedence. With `separateMajorMinor: false`, their major and non-major updates can share a PR.
 
 Vulnerability alert behavior:
 

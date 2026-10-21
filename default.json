@@ -5,7 +5,6 @@
     "config:recommended",
     "docker:pinDigests",
     "group:recommended",
-    "group:vitePlus",
     "helpers:pinGitHubActionDigests",
     "security:minimumReleaseAgeNpm",
     ":automergePatch",
@@ -79,6 +78,13 @@
       "matchUpdateTypes": [
         "minor"
       ]
+    },
+    {
+      "description": "Group Vite+ and Vitest packages",
+      "extends": [
+        "packages:vitePlus"
+      ],
+      "groupName": "Vite+ packages"
     },
     {
       "description": "Group yboyer/actions updates and bypass stability-days",
