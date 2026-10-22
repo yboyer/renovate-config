@@ -84,7 +84,8 @@
       "extends": [
         "packages:vitePlus"
       ],
-      "groupName": "Vite+ packages"
+      "groupName": "Vite+ packages",
+      "separateMinorPatch": false
     },
     {
       "description": "Group yboyer/actions updates and bypass stability-days",
