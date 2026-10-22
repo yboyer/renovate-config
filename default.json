@@ -18,6 +18,7 @@
     ":updateNotScheduled"
   ],
   "internalChecksAsSuccess": true,
+  "groupSlug": "{{{datasource}}}-{{{depNameSanitized}}}-vulnerability",
   "customManagers": [
     {
       "customType": "regex",
@@ -120,6 +121,7 @@
   ],
   "separateMajorMinor": false,
   "vulnerabilityAlerts": {
+    "groupName": "{{{groupSlug}}}",
     "assignees": [
       "yboyer"
     ],

@@ -72,6 +72,8 @@ Package rules:
 
 Vulnerability alert behavior:
 
+- Sets the global `vulnerabilityAlerts.groupName` to `{{{groupSlug}}}` so security updates share branches with ordinary updates in their existing groups, including Vite+, Biome and shared config, yboyer/actions, and the patch/minor groups. This uses the group's slug as the security update's group name.
+- Sets a top-level fallback `groupSlug` of `{{{datasource}}}-{{{depNameSanitized}}}-vulnerability`. Group rules replace it with their own slug; security updates without a matching group keep a dedicated branch per datasource and package. Ordinary ungrouped updates do not use this fallback because they have no `groupName`.
 - No Renovate minimum release age; creates security PRs immediately.
 - Overrides the injected npm release-age filter with `npmrc: "min-release-age=0"`, while retaining `npmrcMerge: true`, so recent security fixes can be installed when generating npm lockfiles.
 - PR prefix: `[SECURITY]`
