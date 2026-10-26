@@ -100,8 +100,33 @@ If you want to compose it with repo-specific settings:
 }
 ```
 
+## GitHub platform auto-merge
+
+Public repositories, and private repositories on a supported GitHub plan, can opt
+in to GitHub-native auto-merge by adding the named preset after the default:
+
+```json
+{
+  "extends": [
+    "github>yboyer/renovate-config",
+    "github>yboyer/renovate-config:platformAutomerge"
+  ]
+}
+```
+
+[`platformAutomerge.json`](./platformAutomerge.json) sets `platformAutomerge: true`.
+Enable **Allow auto-merge** in the consuming repository and configure required
+status checks on its target branch before opting in. GitHub waits for those
+required checks before merging Renovate PRs that are already eligible for
+automerge under the existing rules; this preset does not enable automerge for
+additional update types. It does not request auto-merge for manually authored PRs.
+
+The default preset keeps `platformAutomerge: false` for repositories that do not
+opt in. To roll back, remove the named preset from the repository's `extends`.
+
 ## Repo layout
 
+- `platformAutomerge.json` — optional GitHub-native auto-merge preset
 - `default.json` — default shared preset consumed by Renovate
 - `renovate.json` — applies the shared preset to this repository and adds the root `default.json` to the `renovate-config` manager through `managerFilePatterns`; the standard Renovate config files remain included. This setting applies only to this repository.
 
