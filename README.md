@@ -58,6 +58,12 @@ Custom managers:
     npx --yes --package=semantic-release@26.0.1 --package=@yboyer/semantic-release-config@1.0.0 semantic-release
 ```
 
+- Updates the same release packages when they are pinned in a single-line `npm install` command in a GitHub workflow. Renovate extracts each package separately, including when the command passes options such as `--no-save`.
+
+```yaml
+- run: npm install --no-save semantic-release@26.0.1 @yboyer/semantic-release-config@1.0.0 @semantic-release/exec@7.1.0
+```
+
 Package rules:
 
 - Handles `lockFileMaintenance` updates without a Renovate release-age delay and creates their PRs immediately within the weekly maintenance schedule.

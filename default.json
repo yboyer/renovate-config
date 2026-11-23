@@ -42,6 +42,19 @@
         "(?:^|\\s)--package=(?<depName>semantic-release|@yboyer/semantic-release-config|@semantic-release/[\\w.-]+)@(?<currentValue>[^\\s\"\\x27]+)"
       ],
       "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update release tools used by npm install",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
+      ],
+      "matchStringsStrategy": "recursive",
+      "matchStrings": [
+        "(?:^|\\n)[ \\t]*(?:(?:-[ \\t]+)?run:[ \\t]*)?npm[ \\t]+install[ \\t]+[^\\r\\n#;&|]+",
+        "[ \\t\"\\x27](?<depName>semantic-release|@yboyer/semantic-release-config|@semantic-release/[\\w.-]+)@(?<currentValue>[^\\s\"\\x27]+)"
+      ],
+      "datasourceTemplate": "npm"
     }
   ],
   "minimumReleaseAge": "3 days",
