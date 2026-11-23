@@ -39,7 +39,7 @@
       ],
       "matchStrings": [
         "\\bnpx\\s+(?<depName>semantic-release)@(?<currentValue>[^\\s\"\\x27]+)",
-        "(?:^|\\s)--package=(?<depName>semantic-release|@semantic-release/[\\w.-]+)@(?<currentValue>[^\\s\"\\x27]+)"
+        "(?:^|\\s)--package=(?<depName>semantic-release|@yboyer/semantic-release-config|@semantic-release/[\\w.-]+)@(?<currentValue>[^\\s\"\\x27]+)"
       ],
       "datasourceTemplate": "npm"
     }
