@@ -51,11 +51,11 @@ Custom managers:
       git --verbose --redact --no-color .
 ```
 
-- Updates `semantic-release` in direct `npx semantic-release@VERSION` commands and `semantic-release` or `@semantic-release/*` plugins in `--package=PACKAGE@VERSION` arguments, including multiline `run: |` blocks in `.github/workflows/*.yml` and `.github/workflows/*.yaml`. The regex custom manager captures each package name and version separately and uses the npm datasource.
+- Updates `semantic-release` in direct `npx semantic-release@VERSION` commands and `semantic-release`, `@yboyer/semantic-release-config`, or `@semantic-release/*` packages in `--package=PACKAGE@VERSION` arguments, including multiline `run: |` blocks in `.github/workflows/*.yml` and `.github/workflows/*.yaml`. The regex custom manager captures each package name and version separately and uses the npm datasource.
 
 ```yaml
 - run: |
-    npx --yes --package=semantic-release@25.0.1 --package=@semantic-release/git@11.0.1 semantic-release
+    npx --yes --package=semantic-release@26.0.1 --package=@yboyer/semantic-release-config@1.0.0 semantic-release
 ```
 
 Package rules:
